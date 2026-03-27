@@ -1,3 +1,12 @@
-<script 
-  src="https://www.paypal.com/sdk/js?client-id=BAACWrOZGBoLDlPBXPGGah4srdcZqNI2VoSQtQs9DrRk-S1ifsfeNGGApOqMRaiXABp7mFamWVbGNc_4lw&components=hosted-buttons&disable-funding=venmo&currency=ILS">
+<!-- PayPal Button -->
+<div style="text-align:center; margin:40px 0;">
+  <div id="paypal-container-5BSLU7DFQQZ32"></div>
+</div>
+
+<script src="https://www.paypal.com/sdk/js?client-id=BAACWrOZGBoLDlPBXPGGah4srdcZqNI2VoSQtQs9DrRk-S1ifsfeNGGApOqMRaiXABp7mFamWVbGNc_4lw&components=hosted-buttons&currency=ILS"></script>
+
+<script>
+  paypal.HostedButtons({
+    hostedButtonId: "5BSLU7DFQQZ32"
+  }).render("#paypal-container-5BSLU7DFQQZ32");
 </script>
