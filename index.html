@@ -1,110 +1,156 @@
 <!DOCTYPE html>
 <html lang="he">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>המסע אל עצמך</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #fff8e7; /* רקע שמנת */
-      color: #888888; /* טקסט אפור בהיר */
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>המסע אל עצמך</title>
+<style>
+  /* --- עיצוב כללי --- */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fff8e7; /* רקע שמנת */
+    color: #888888; /* טקסט אפור בהיר */
+  }
 
-    header {
-      background-color: #f5e6d3; /* שמנת כהה */
-      padding: 30px 20px;
-      text-align: center;
-      border-bottom: 2px solid #e0d1b8;
-    }
+  /* --- כותרת עליונה --- */
+  header {
+    background-color: #f5e6d3; /* שמנת כהה */
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 2px solid #e0d1b8;
+  }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-      color: #6b7bbf; /* כחול עדין */
-    }
+  header h1 {
+    margin: 0;
+    font-size: 3em;
+    color: #6b7bbf; /* כחול עדין */
+  }
 
-    .content {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-      text-align: center;
-    }
+  /* --- תוכן מרכזי --- */
+  .content {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0 20px;
+    text-align: center;
+  }
 
-    .content p {
-      font-size: 1.2em;
-      line-height: 1.6;
-      color: #888888;
-    }
+  .content p {
+    font-size: 1.2em;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: #888888;
+  }
 
-    .book-image {
-      margin: 30px 0;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      max-width: 100%;
-      height: auto;
-    }
+  /* --- תמונה של הספר --- */
+  .book-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+  }
 
-    /* כפתור רכישה PayPal */
-    .paypal-button {
-      display: inline-block;
-      margin-top: 20px;
-    }
+  .book-image:hover {
+    transform: scale(1.03);
+  }
 
-    .button-custom {
-      display: inline-block;
-      padding: 15px 30px;
-      font-size: 1.2em;
-      background: linear-gradient(135deg, #ffb6c1, #add8e6); /* ורוד וכחול עדין */
-      color: #fff;
-      text-decoration: none;
-      border-radius: 12px;
-      transition: 0.3s;
-      border: none;
-      font-weight: bold;
-      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-    }
+  /* --- כפתור רכישה --- */
+  .button-custom {
+    display: inline-block;
+    padding: 18px 40px;
+    font-size: 1.3em;
+    font-weight: bold;
+    background: linear-gradient(135deg, #ffb6c1, #add8e6); /* ורוד וכחול עדין */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    margin-top: 30px;
+  }
 
-    .button-custom:hover {
-      background: linear-gradient(135deg, #ff9fb3, #90c1e0);
-      transform: translateY(-2px);
-    }
+  .button-custom:hover {
+    background: linear-gradient(135deg, #ff9fb3, #90c1e0);
+    transform: translateY(-3px);
+  }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #f5e6d3;
-      margin-top: 50px;
-      font-size: 0.9em;
-      color: #888888;
-      border-top: 2px solid #e0d1b8;
-    }
-  </style>
+  /* --- סקירה קצרה / פרקים --- */
+  .sections {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  .section {
+    background-color: #fdf4ec; /* שמנת בהירה */
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  }
+
+  .section h2 {
+    color: #6b7bbf; /* כחול עדין */
+    margin-bottom: 15px;
+  }
+
+  /* --- Footer --- */
+  footer {
+    text-align: center;
+    padding: 25px 20px;
+    background-color: #f5e6d3;
+    border-top: 2px solid #e0d1b8;
+    margin-top: 50px;
+    color: #888888;
+    font-size: 0.9em;
+  }
+
+</style>
 </head>
 <body>
 
+  <!-- כותרת -->
   <header>
     <h1>המסע אל עצמך</h1>
   </header>
 
+  <!-- תוכן מרכזי -->
   <div class="content">
     <p>ספר דיגיטלי ייחודי שיעזור לכם להכיר את עצמכם, לצמוח ולגלות דרכים חדשות להתפתחות אישית. עכשיו במחיר השקה מיוחד!</p>
-    
-    <!-- כאן תשימי את תמונת הכריכה האמיתית שלך -->
+
+    <!-- תמונת הספר -->
     <img src="https://via.placeholder.com/400x600" alt="כריכת הספר המסע אל עצמך" class="book-image">
 
-    <!-- כפתור רכישה מוכן PayPal -->
+    <!-- כפתור רכישה PayPal -->
     <div class="paypal-button">
       <form action="https://www.paypal.com/donate" method="post" target="_top">
-        <!-- הכנסי כאן את ה-Business ID או את ה-Link שלך מ-PayPal -->
         <input type="hidden" name="hosted_button_id" value="YOUR_BUTTON_ID_HERE" />
         <input type="submit" class="button-custom" value="לרכישת הספר" />
       </form>
     </div>
+
+    <!-- מקטעי סקירה / פרקים -->
+    <div class="sections">
+      <div class="section">
+        <h2>מה תלמדו בספר</h2>
+        <p>גילוי עצמי, התמודדות עם אתגרים אישיים, טיפים להתפתחות וצמיחה אישית.</p>
+      </div>
+      <div class="section">
+        <h2>למי הספר מתאים</h2>
+        <p>לכל מי שרוצה להבין את עצמו טוב יותר ולחיות חיים מלאים יותר ומודעים.</p>
+      </div>
+      <div class="section">
+        <h2>תוצאה שתוכלו להשיג</h2>
+        <p>כלים מעשיים ליום-יום, שיפור ביטחון עצמי, והתחלה של מסע אישי מרתק.</p>
+      </div>
+    </div>
   </div>
 
+  <!-- Footer -->
   <footer>
     © 2026 המסע אל עצמך | כל הזכויות שמורות
   </footer>
