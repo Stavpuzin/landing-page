@@ -1,109 +1,114 @@
 <!DOCTYPE html>
 <html lang="he">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>המסע אל עצמך - בית</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>המסע אל עצמך</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff8e7; /* רקע שמנת */
+      color: #888888; /* טקסט אפור בהיר */
+    }
+
+    header {
+      background-color: #f5e6d3; /* שמנת כהה */
+      padding: 30px 20px;
+      text-align: center;
+      border-bottom: 2px solid #e0d1b8;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #6b7bbf; /* כחול עדין */
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .content p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      color: #888888;
+    }
+
+    .book-image {
+      margin: 30px 0;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* כפתור רכישה PayPal */
+    .paypal-button {
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .button-custom {
+      display: inline-block;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background: linear-gradient(135deg, #ffb6c1, #add8e6); /* ורוד וכחול עדין */
+      color: #fff;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: 0.3s;
+      border: none;
+      font-weight: bold;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    .button-custom:hover {
+      background: linear-gradient(135deg, #ff9fb3, #90c1e0);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #f5e6d3;
+      margin-top: 50px;
+      font-size: 0.9em;
+      color: #888888;
+      border-top: 2px solid #e0d1b8;
+    }
+  </style>
 </head>
 <body>
+
   <header>
-    <nav>
-      <ul>
-        <li><a href="index.html">בית</a></li>
-        <li><a href="about.html">אודות הספר</a></li>
-        <li><a href="download.html">התחל לקרוא</a></li>
-        <li><a href="contact.html">צור קשר</a></li>
-      </ul>
-    </nav>
     <h1>המסע אל עצמך</h1>
   </header>
 
-  <main>
-    <div class="book-image">
-      <img src="a54cc173-c337-4962-ada4-4bb252d71c10.png" alt="המסע אל עצמך">
-    </div>
+  <div class="content">
+    <p>ספר דיגיטלי ייחודי שיעזור לכם להכיר את עצמכם, לצמוח ולגלות דרכים חדשות להתפתחות אישית. עכשיו במחיר השקה מיוחד!</p>
+    
+    <!-- כאן תשימי את תמונת הכריכה האמיתית שלך -->
+    <img src="https://via.placeholder.com/400x600" alt="כריכת הספר המסע אל עצמך" class="book-image">
 
-    <section class="intro">
-      <p>ספר דיגיטלי ייחודי שיעזור לך להכיר את עצמך, לצמוח ולגלות דרכים חדשות להתפתחות אישית.</p>
-      <p><strong>עכשיו במחיר השקה מיוחד!</strong></p>
-      <p>החיים שלנו הם שילוב תמידי של מחשבה, רגש, פעולה ונשמה. לעיתים נדמה שהם סבוכים, מלאי קונפליקטים פנימיים, ואנחנו לא תמיד יודעים איך לנווט בהם.</p>
-      <p>התחל את המסע שלך עכשיו - הורד את הספר והתחבר לעצמך.</p>
-      <a href="download.html" class="cta-button">הורד עכשיו</a>
-    </section>
-  </main>
+    <!-- כפתור רכישה מוכן PayPal -->
+    <div class="paypal-button">
+      <form action="https://www.paypal.com/donate" method="post" target="_top">
+        <!-- הכנסי כאן את ה-Business ID או את ה-Link שלך מ-PayPal -->
+        <input type="hidden" name="hosted_button_id" value="YOUR_BUTTON_ID_HERE" />
+        <input type="submit" class="button-custom" value="לרכישת הספר" />
+      </form>
+    </div>
+  </div>
 
   <footer>
-    &copy; 2026 המסע אל עצמך. כל הזכויות שמורות.
+    © 2026 המסע אל עצמך | כל הזכויות שמורות
   </footer>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="he">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>אודות הספר</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<header>
-  <nav>
-    <ul>
-      <li><a href="index.html">בית</a></li>
-      <li><a href="about.html">אודות הספר</a></li>
-      <li><a href="download.html">התחל לקרוא</a></li>
-      <li><a href="contact.html">צור קשר</a></li>
-    </ul>
-  </nav>
-  <h1>אודות הספר</h1>
-</header>
 
-<main>
-  <section class="intro">
-    <p>בספר הזה תגלו את הכלים להבין את עצמכם טוב יותר, להקשיב לקול הפנימי, לקבל את רגשותיכם, להתמודד עם פחדים ומכשולים, ולהתחבר לנשמה שלכם.</p>
-    <p>כל פרק הוא מסע – מהכרת הקונפליקטים בין המוח ללב, דרך קבלה עצמית, התמודדות עם כישלונות, ועד למצוא שמחה פנימית אמיתית.</p>
-    <p>המסע הזה נועד להזכיר לכם: אתם לא צריכים להילחם בעצמכם. אתם יכולים לגלות שקט פנימי, אהבה עצמית, ושמחת חיים – כבר כאן, בתוככם.</p>
-  </section>
-</main>
-
-<footer>
-  &copy; 2026 המסע אל עצמך. כל הזכויות שמורות.
-</footer>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="he">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>הורד את הספר</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<header>
-  <nav>
-    <ul>
-      <li><a href="index.html">בית</a></li>
-      <li><a href="about.html">אודות הספר</a></li>
-      <li><a href="download.html">התחל לקרוא</a></li>
-      <li><a href="contact.html">צור קשר</a></li>
-    </ul>
-  </nav>
-  <h1>הורד את הספר</h1>
-</header>
-
-<main>
-  <section class="intro">
-    <p>כדי להתחבר לעצמך ולהתחיל את המסע – הורד את הספר עכשיו.</p>
-    <!-- כאן את יכולה להוסיף את קוד PayPal שלך במקום הכפתור -->
-    <button>הורד עכשיו</button>
-  </section>
-</main>
-
-<footer>
-  &copy; 2026 המסע אל עצמך. כל הזכויות שמורות.
-</footer>
 </body>
 </html>
 
