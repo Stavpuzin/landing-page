@@ -1,12 +1,78 @@
-<!-- PayPal Button -->
-<div style="text-align:center; margin:40px 0;">
-  <div id="paypal-container-5BSLU7DFQQZ32"></div>
+<!DOCTYPE html>
+<html lang="he">
+<head>
+<meta charset="UTF-8">
+<title>המסע אל עצמך - הספר שלי</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    direction: rtl;
+    padding: 50px;
+    background-color: #f9f9f9;
+  }
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  }
+  h1 {
+    color: #333;
+  }
+  p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+  }
+  img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin: 20px 0;
+  }
+  #paypal-container {
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>המסע אל עצמך</h1>
+  <img src="cover.jpg" alt="כריכת הספר שלי">
+  <p>
+    ספר דיגיטלי ייחודי שיעזור לך להכיר את עצמך, לצמוח ולגלות דרכים חדשות להתפתחות אישית.
+  </p>
+  <p>
+    עכשיו במחיר השקה מיוחד!
+  </p>
+
+  <!-- PayPal Button Container -->
+  <div id="paypal-container"></div>
 </div>
 
-<script src="https://www.paypal.com/sdk/js?client-id=BAACWrOZGBoLDlPBXPGGah4srdcZqNI2VoSQtQs9DrRk-S1ifsfeNGGApOqMRaiXABp7mFamWVbGNc_4lw&components=hosted-buttons&currency=ILS"></script>
-
+<!-- PayPal SDK -->
+<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=ILS"></script>
 <script>
-  paypal.HostedButtons({
-    hostedButtonId: "5BSLU7DFQQZ32"
-  }).render("#paypal-container-5BSLU7DFQQZ32");
+  paypal.Buttons({
+    createOrder: function(data, actions) {
+      return actions.order.create({
+        purchase_units: [{
+          amount: { value: '50.00' } // מחיר הספר
+        }]
+      });
+    },
+    onApprove: function(data, actions) {
+      return actions.order.capture().then(function(details) {
+        alert('תודה על הרכישה, ' + details.payer.name.given_name + '!');
+        // הפניה לקובץ PDF להורדה אחרי התשלום
+        window.location.href = 'yourbook.pdf';
+      });
+    }
+  }).render('#paypal-container');
 </script>
+
+</body>
+</html>
