@@ -3,128 +3,132 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- פונט עדין ויפה -->
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600&family=Handlee&display=swap" rel="stylesheet">
+
 <title>המסע אל עצמך</title>
+
 <style>
-  /* --- עיצוב כללי --- */
   body {
     margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #fff8e7; /* רקע שמנת */
-    color: #888888; /* טקסט אפור בהיר */
+    font-family: 'Assistant', sans-serif;
+    background: linear-gradient(to bottom, #fffdf9, #f9f5ef); /* שמנת-לבן */
+    color: #9a9a9a; /* אפור בהיר */
   }
 
-  /* --- כותרת עליונה --- */
   header {
-    background-color: #f5e6d3; /* שמנת כהה */
-    padding: 60px 20px;
     text-align: center;
-    border-bottom: 2px solid #e0d1b8;
+    padding: 80px 20px 40px;
   }
 
+  /* כותרת בסגנון ציור עיפרון */
   header h1 {
+    font-family: 'Handlee', cursive;
+    font-size: 3.2em;
+    color: #6f86c9; /* כחול עדין */
+    letter-spacing: 2px;
     margin: 0;
-    font-size: 3em;
-    color: #6b7bbf; /* כחול עדין */
   }
 
-  /* --- תוכן מרכזי --- */
   .content {
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 0 20px;
+    max-width: 800px;
+    margin: auto;
     text-align: center;
+    padding: 20px;
   }
 
   .content p {
     font-size: 1.2em;
     line-height: 1.8;
-    margin-bottom: 30px;
-    color: #888888;
+    margin-bottom: 40px;
   }
 
-  /* --- תמונה של הספר --- */
+  /* תמונה */
   .book-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-  }
-
-  .book-image:hover {
-    transform: scale(1.03);
-  }
-
-  /* --- כפתור רכישה --- */
-  .button-custom {
-    display: inline-block;
-    padding: 18px 40px;
-    font-size: 1.3em;
-    font-weight: bold;
-    background: linear-gradient(135deg, #ffb6c1, #add8e6); /* ורוד וכחול עדין */
-    color: #fff;
-    text-decoration: none;
+    width: 300px;
     border-radius: 12px;
-    border: none;
-    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+  }
+
+  /* כפתור עדין */
+  .button {
+    display: inline-block;
+    padding: 14px 35px;
+    border-radius: 30px;
+    background-color: #dfe7fb; /* כחול מאוד בהיר */
+    color: #6f86c9;
+    text-decoration: none;
+    font-weight: 600;
     transition: 0.3s;
-    margin-top: 30px;
   }
 
-  .button-custom:hover {
-    background: linear-gradient(135deg, #ff9fb3, #90c1e0);
-    transform: translateY(-3px);
+  .button:hover {
+    background-color: #cfdaf7;
+    transform: translateY(-2px);
   }
 
-  /* --- סקירה קצרה / פרקים --- */
-  .sections {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    margin-top: 50px;
-    text-align: center;
-  }
-
+  /* מקטעים */
   .section {
-    background-color: #fdf4ec; /* שמנת בהירה */
-    padding: 30px 20px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-top: 60px;
   }
 
   .section h2 {
-    color: #6b7bbf; /* כחול עדין */
-    margin-bottom: 15px;
+    color: #6f86c9;
+    font-weight: 600;
+    margin-bottom: 10px;
   }
 
-  /* --- Footer --- */
   footer {
+    margin-top: 80px;
+    padding: 30px;
     text-align: center;
-    padding: 25px 20px;
-    background-color: #f5e6d3;
-    border-top: 2px solid #e0d1b8;
-    margin-top: 50px;
-    color: #888888;
     font-size: 0.9em;
+    color: #b5b5b5;
   }
 
 </style>
 </head>
+
 <body>
 
-  <!-- כותרת -->
-  <header>
-    <h1>המסע אל עצמך</h1>
-  </header>
+<header>
+  <h1>המסע אל עצמך</h1>
+</header>
 
-  <!-- תוכן מרכזי -->
-  <div class="content">
-    <p>ספר דיגיטלי ייחודי שיעזור לכם להכיר את עצמכם, לצמוח ולגלות דרכים חדשות להתפתחות אישית. עכשיו במחיר השקה מיוחד!</p>
+<div class="content">
+  <p>
+    ספר דיגיטלי עדין ומעמיק שיעזור לכם להכיר את עצמכם,
+    להתחבר פנימה ולצאת למסע של צמיחה והתפתחות אישית.
+  </p>
 
-    <!-- תמונת הספר -->
-    <img src="https://via.placeholder.com/400x600" alt="כריכת הספר המסע אל עצמך" class="book-image">
+  <!-- תמונה -->
+  <img src="https://via.placeholder.com/300x450" class="book-image">
 
+  <!-- כפתור -->
+  <br>
+  <a href="#" class="button">לרכישת הספר</a>
+
+  <!-- מקטעים -->
+  <div class="section">
+    <h2>מה מחכה לכם בפנים</h2>
+    <p>תובנות, מחשבות עמוקות וכלים שיעזרו לכם להבין את עצמכם טוב יותר.</p>
+  </div>
+
+  <div class="section">
+    <h2>למי זה מתאים</h2>
+    <p>לכל מי שמרגיש שהוא רוצה לעצור רגע ולהתחבר לעצמו באמת.</p>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 המסע אל עצמך
+</footer>
+
+</body>
+</html>
     <!-- כפתור רכישה PayPal -->
     <div class="paypal-button">
       <form action="https://www.paypal.com/donate" method="post" target="_top">
