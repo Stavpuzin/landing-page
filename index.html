@@ -4,164 +4,277 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- פונט עדין ויפה -->
-<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600&family=Handlee&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
 
 <title>המסע אל עצמך</title>
 
 <style>
-  body {
-    margin: 0;
-    font-family: 'Assistant', sans-serif;
-    background: linear-gradient(to bottom, #fffdf9, #f9f5ef); /* שמנת-לבן */
-    color: #9a9a9a; /* אפור בהיר */
-  }
 
-  header {
-    text-align: center;
-    padding: 80px 20px 40px;
-  }
+/* כללי */
+html { scroll-behavior: smooth; }
 
-  /* כותרת בסגנון ציור עיפרון */
-  header h1 {
-    font-family: 'Handlee', cursive;
-    font-size: 3.2em;
-    color: #6f86c9; /* כחול עדין */
-    letter-spacing: 2px;
-    margin: 0;
-  }
+body {
+  margin: 0;
+  font-family: 'Assistant', sans-serif;
+  background: #fdfaf5;
+  color: #8a8a8a;
+}
 
-  .content {
-    max-width: 800px;
-    margin: auto;
-    text-align: center;
-    padding: 20px;
-  }
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
 
-  .content p {
-    font-size: 1.2em;
-    line-height: 1.8;
-    margin-bottom: 40px;
-  }
+.hero h1 {
+  font-size: 3.5em;
+  color: #6c7ecf;
+  margin-bottom: 10px;
+}
 
-  /* תמונה */
-  .book-image {
-    width: 300px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    margin-bottom: 30px;
-  }
+.hero h2 {
+  color: #c8b79e;
+  font-weight: 300;
+}
 
-  /* כפתור עדין */
-  .button {
-    display: inline-block;
-    padding: 14px 35px;
-    border-radius: 30px;
-    background-color: #dfe7fb; /* כחול מאוד בהיר */
-    color: #6f86c9;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
-  }
+.hero img {
+  width: 260px;
+  margin-top: 30px;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
 
-  .button:hover {
-    background-color: #cfdaf7;
-    transform: translateY(-2px);
-  }
+/* כפתור */
+.button {
+  margin-top: 30px;
+  padding: 14px 35px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #e8d8c3, #d6e4ff);
+  color: #6c7ecf;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
 
-  /* מקטעים */
-  .section {
-    margin-top: 60px;
-  }
+.button:hover {
+  transform: translateY(-3px);
+}
 
-  .section h2 {
-    color: #6f86c9;
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
+/* מבוא */
+.about {
+  max-width: 800px;
+  margin: auto;
+  padding: 80px 20px;
+  text-align: center;
+}
 
-  footer {
-    margin-top: 80px;
-    padding: 30px;
-    text-align: center;
-    font-size: 0.9em;
-    color: #b5b5b5;
-  }
+.about h1 {
+  color: #6c7ecf;
+}
+
+.about p {
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
+
+.highlight {
+  color: #6c7ecf;
+  font-weight: 600;
+}
+
+/* FAQ */
+.faq {
+  max-width: 800px;
+  margin: auto;
+  padding: 80px 20px;
+}
+
+.faq h1 {
+  text-align: center;
+  color: #6c7ecf;
+}
+
+.faq-item {
+  background: #f8f5ef;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.faq-question {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  color: #6c7ecf;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  transition: 0.4s;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 200px;
+  padding-bottom: 20px;
+}
+
+/* כפתור צף */
+.floating-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #6c7ecf;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  display: none;
+}
+
+/* אנימציה */
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 1s;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 </style>
 </head>
 
 <body>
 
-<header>
+<!-- HERO -->
+<section class="hero fade">
   <h1>המסע אל עצמך</h1>
-</header>
+  <h2>לגלות. להתחבר. להשתנות.</h2>
 
-<div class="content">
-  <p>
-    ספר דיגיטלי עדין ומעמיק שיעזור לכם להכיר את עצמכם,
-    להתחבר פנימה ולצאת למסע של צמיחה והתפתחות אישית.
-  </p>
+  <img src="https://via.placeholder.com/300x450">
 
-  <!-- תמונה -->
-  <img src="https://via.placeholder.com/300x450" class="book-image">
+  <a href="#about" class="button">לגלות עוד</a>
+</section>
 
-  <!-- כפתור -->
-  <br>
-  <a href="#" class="button">לרכישת הספר</a>
+<!-- מבוא -->
+<section class="about fade" id="about">
 
-  <!-- מקטעים -->
-  <div class="section">
-    <h2>מה מחכה לכם בפנים</h2>
-    <p>תובנות, מחשבות עמוקות וכלים שיעזרו לכם להבין את עצמכם טוב יותר.</p>
-  </div>
+<h1>המסע אל עצמך</h1>
 
-  <div class="section">
-    <h2>למי זה מתאים</h2>
-    <p>לכל מי שמרגיש שהוא רוצה לעצור רגע ולהתחבר לעצמו באמת.</p>
-  </div>
+<p class="highlight">ספר דיגיטלי קצר שמתאים לכולם</p>
 
+<p>
+החיים שלנו הם שילוב תמידי של מחשבה, רגש, פעולה ונשמה.
+לעיתים נדמה שהם סבוכים ואנחנו לא תמיד יודעים איך לנווט בהם.
+</p>
+
+<p>
+בספר הזה תגלו כלים להבין את עצמכם, להתמודד עם פחדים ולהתחבר לנשמה שלכם.
+</p>
+
+<p>
+המסע הזה נועד להזכיר לכם: אתם לא צריכים להילחם בעצמכם.
+</p>
+
+<p class="highlight">
+התחל את המסע שלך עכשיו – הורד את הספר והתחבר לעצמך.
+</p>
+
+</section>
+
+<!-- FAQ -->
+<section class="faq fade">
+
+<h1>שאלות נפוצות</h1>
+
+<div class="faq-item">
+<div class="faq-question">האם הספר מתאים לכולם? <span>+</span></div>
+<div class="faq-answer">כן, לכל מי שרוצה להתפתח.</div>
 </div>
 
-<footer>
-  © 2026 המסע אל עצמך
-</footer>
+<div class="faq-item">
+<div class="faq-question">כמה זמן לקרוא? <span>+</span></div>
+<div class="faq-answer">כמה שעות.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">איך מקבלים? <span>+</span></div>
+<div class="faq-answer">בהורדה ישירה.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">מתאים לטלפון? <span>+</span></div>
+<div class="faq-answer">כן.</div>
+</div>
+
+<div class="faq-item">
+<div class="faq-question">יש החזר? <span>+</span></div>
+<div class="faq-answer">בהתאם למדיניות.</div>
+</div>
+
+</section>
+
+<!-- כפתור צף -->
+<a href="#" class="floating-btn" id="buyBtn">לקנייה</a>
+
+<script>
+
+/* FAQ */
+const items = document.querySelectorAll(".faq-item");
+
+items.forEach(item => {
+  item.addEventListener("click", () => {
+
+    items.forEach(i => {
+      if (i !== item) {
+        i.classList.remove("active");
+        i.querySelector("span").textContent = "+";
+      }
+    });
+
+    item.classList.toggle("active");
+
+    const symbol = item.querySelector("span");
+    symbol.textContent = item.classList.contains("active") ? "−" : "+";
+  });
+});
+
+/* אנימציות */
+const faders = document.querySelectorAll(".fade");
+
+window.addEventListener("scroll", () => {
+  faders.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 50) {
+      el.classList.add("show");
+    }
+  });
+});
+
+/* כפתור צף */
+const btn = document.getElementById("buyBtn");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
+  }
+});
+
+</script>
 
 </body>
 </html>
-    <!-- כפתור רכישה PayPal -->
-    <div class="paypal-button">
-      <form action="https://www.paypal.com/donate" method="post" target="_top">
-        <input type="hidden" name="hosted_button_id" value="YOUR_BUTTON_ID_HERE" />
-        <input type="submit" class="button-custom" value="לרכישת הספר" />
-      </form>
-    </div>
-
-    <!-- מקטעי סקירה / פרקים -->
-    <div class="sections">
-      <div class="section">
-        <h2>מה תלמדו בספר</h2>
-        <p>גילוי עצמי, התמודדות עם אתגרים אישיים, טיפים להתפתחות וצמיחה אישית.</p>
-      </div>
-      <div class="section">
-        <h2>למי הספר מתאים</h2>
-        <p>לכל מי שרוצה להבין את עצמו טוב יותר ולחיות חיים מלאים יותר ומודעים.</p>
-      </div>
-      <div class="section">
-        <h2>תוצאה שתוכלו להשיג</h2>
-        <p>כלים מעשיים ליום-יום, שיפור ביטחון עצמי, והתחלה של מסע אישי מרתק.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    © 2026 המסע אל עצמך | כל הזכויות שמורות
-  </footer>
-
-</body>
-</html>
-
   <!-- PayPal Button Container -->
   <div id="paypal-container"></div>
 </div>
