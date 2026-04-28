@@ -1,386 +1,214 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="he" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>המסע אל עצמך - ספר דיגיטלי קצר שמתאים לכולם</title>
+  <style>
+    :root{
+      --bg: #ffffff;
+      --green: #16a34a;     /* ירוק יפה */
+      --green-dark: #128033;
+      --text: #202124;
+      --muted: #6b7280;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; }
+    header { display:flex; justify-content: space-between; align-items:center; padding: 20px 28px; border-bottom: 1px solid #eee; position: sticky; top:0; background:#fff; z-index: 1000; }
+    .logo { font-weight: 700; color: var(--green-dark); }
+    nav a { margin: 0 10px; text-decoration: none; color: var(--text); font-size: 14px; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
+    /* Hero */
+    .hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; padding: 40px 0; }
+    .hero h1 { font-size: 2.8rem; line-height: 1.08; margin: 0 0 12px; letter-spacing: -0.5px; }
+    .hero p { color: var(--muted); font-size: 1.05rem; max-width: 60ch; }
+    .cta-bar { display:flex; gap: 14px; margin-top: 18px; }
+    .btn { padding: 14px 22px; border-radius: 8px; border: 0; cursor: pointer; font-size: 16px; }
+    .btn.primary { background: var(--green); color: #fff; }
+    .btn.secondary { background: #f3f4f6; color: #111; }
 
-<title>המסע אל עצמך</title>
+    /* Preview & features */
+    .section { padding: 48px 0; border-bottom: 1px solid #f0f0f0; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card { background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 16px; min-height: 120px; }
+    .card h4 { margin: 0 0 8px; font-size: 1.05rem; }
 
-<style>
+    /* FAQ Accordion */
+    .faq { max-width: 900px; margin: 0 auto; }
+    .faq-item { border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 12px; overflow: hidden; }
+    .faq-q { width: 100%; text-align: right; padding: 14px 16px; background: #fff; border: 0; font-size: 16px; cursor: pointer; display:flex; justify-content: space-between; align-items: center; }
+    .faq-a { padding: 0 16px 16px; display: none; background: #fafafa; color: #374151; }
+    .faq-item.open .faq-a { display: block; }
+    .faq-icon { transition: transform 0.2s ease; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
 
-/* כללי */
-html { scroll-behavior: smooth; }
-
-body {
-  margin: 0;
-  font-family: 'Assistant', sans-serif;
-  background: #fdfaf5;
-  color: #8a8a8a;
-}
-
-/* HERO */
-.hero {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  text-align: center;
-}
-
-.hero h1 {
-  font-size: 3.5em;
-  color: #6c7ecf;
-  margin-bottom: 10px;
-}
-
-.hero h2 {
-  color: #c8b79e;
-  font-weight: 300;
-}
-
-.hero img {
-  width: 260px;
-  margin-top: 30px;
-  border-radius: 15px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
-}
-
-/* כפתור */
-.button {
-  margin-top: 30px;
-  padding: 14px 35px;
-  border-radius: 30px;
-  background: linear-gradient(135deg, #e8d8c3, #d6e4ff);
-  color: #6c7ecf;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.button:hover {
-  transform: translateY(-3px);
-}
-<style>
-
-.floating-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: linear-gradient(135deg, #e8d8c3, #d6e4ff);
-  color: #6c7ecf;
-  padding: 15px 25px;
-  border-radius: 40px;
-  text-decoration: none;
-  font-weight: 600;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  display: none;
-  animation: pulse 2s infinite;
-}
-
-/* טקסט קטן */
-.sub-text {
-  font-size: 0.7em;
-  color: #888;
-  margin-top: 3px;
-}
-
-/* אפקט נשימה */
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(108,126,207, 0.4);
-  }
-  70% {
-    transform: scale(1.05);
-    box-shadow: 0 0 0 10px rgba(108,126,207, 0);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-</style>
-/* מבוא */
-.about {
-  max-width: 800px;
-  margin: auto;
-  padding: 80px 20px;
-  text-align: center;
-}
-
-.about h1 {
-  color: #6c7ecf;
-}
-
-.about p {
-  line-height: 1.9;
-  margin-bottom: 20px;
-}
-
-.highlight {
-  color: #6c7ecf;
-  font-weight: 600;
-}
-
-/* FAQ */
-.faq {
-  max-width: 800px;
-  margin: auto;
-  padding: 80px 20px;
-}
-
-.faq h1 {
-  text-align: center;
-  color: #6c7ecf;
-}
-
-.faq-item {
-  background: #f8f5ef;
-  border-radius: 12px;
-  margin-bottom: 10px;
-  cursor: pointer;
-}
-
-.faq-question {
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  color: #6c7ecf;
-}
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  padding: 0 20px;
-  transition: 0.4s;
-}
-
-.faq-item.active .faq-answer {
-  max-height: 200px;
-  padding-bottom: 20px;
-}
-
-<a href="#payment" class="floating-btn" id="buyBtn">
-  אני רוצה את הספר!
-  <div class="sub-text">גישה מיידית אחרי תשלום</div>
-</a>
-
-/* אנימציה */
-.fade {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: 1s;
-}
-
-.fade.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-</style>
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero { grid-template-columns: 1fr; text-align: right; }
+      .grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 520px){
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
-
 <body>
+  <header>
+    <div class="logo" aria-label="לוגו הספר">המסע אל עצמך</div>
+    <nav aria-label="ניווט">
+      <a href="#about">על הספר</a>
+      <a href="#preview">תצוגה מקדימה</a>
+      <a href="#faq">שאלות נפוצות</a>
+      <a href="#checkout">תשלום</a>
+    </nav>
+  </header>
 
-<!-- HERO -->
-<section class="hero fade">
-  <h1>המסע אל עצמך</h1>
-  <h2>לגלות. להתחבר. להשתנות.</h2>
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero" aria-label="קטע הגעה">
+      <div>
+        <h1>המסע אל עצמך - ספר דיגיטלי קצר שמתאים לכולם</h1>
+        <p>
+          החיים שלנו הם שילוב תמידי של מחשבה, רגש, פעולה ונשמה. לעיתים נדמה שהם סבוכים, מלאי קונפליקטים פנימיים, ואנחנו לא תמיד יודעים איך לנווט בהם.
+        </p>
+        <p>
+          בספר הזה תגלו את הכלים להבין את עצמכם טוב יותר, להקשיב לקול הפנימי, לקבל את רגשותיכם, להתמודד עם פחדים ומכשולים, ולהתחבר לנשמה שלכם. כל פרק הוא מסע – מהכרת הקונפליקטים בין המוח ללב, דרך קבלה עצמית, התמודדות עם כישלונות, ועד למצוא שמחה פנימית אמיתית.
+        </p>
+        <p>
+          המסע הזה נועד להזכיר לכם: אתם לא צריכים להילחם בעצמכם. אתם יכולים לגלות שקט פנימי, אהבה עצמית, ושמחת חיים – כבר כאן, בתוככם.
+        </p>
 
-  <img src="https://via.placeholder.com/300x450">
+        <div class="cta-bar" id="cta-top">
+          <button class="btn primary" id="btn-buy-top">אני רוצה את הספר</button>
+          <button class="btn secondary" onclick="document.getElementById('preview').scrollIntoView({behavior:'smooth'});">הצג תצוגה מקדימה</button>
+        </div>
+      </div>
 
-  <a href="#about" class="button">לגלות עוד</a>
-</section>
+      <div aria-label="תצוגה מקדימה של הספר" style="border:1px solid #eee; border-radius:12px; padding:12px;">
+        <div style="font-weight:600; margin-bottom:6px;">תצוגה מקדימה</div>
+        <ul style="margin:0; padding-left:20px;">
+          <li>פרקים המדגישים הכרת הקונפליקטים בין מוח ללב</li>
+          <li>הקשבה לקול הפנימי, קבלה עצמית והתמודדות עם פחדים</li>
+          <li>צעדים לשמחה פנימית אמיתית</li>
+        </ul>
+        <p style="margin-top:8px; color:#6b7280;">הספר הוא קצר, ממוקד וקל לקריאה בכל זמן ובכל מקום.</p>
+      </div>
+    </section>
 
-<!-- מבוא -->
-<section class="about fade" id="about">
+    <!-- על הספר / Preview -->
+    <section id="about" class="section" aria-label="על הספר">
+      <h2 style="text-align:center; margin-bottom:12px;">הספר "המסע אל עצמך"</h2>
+      <p style="max-width: 800px; margin:0 auto; text-align:center;">
+        זהו ספר דיגיטלי קצר שמתאים לכולם. מסע מעשיר שמזמן כלי פעולה היישומים על החיים היומיומיים — אמפתיה עצמית, קשב לרגשות, ושמחה פנימית. הורידו אותו עכשיו להתחבר לעצמכם.
+      </p>
+    </section>
 
-<h1>המסע אל עצמך</h1>
+    <!-- Preview Grid -->
+    <section id="preview" class="section" aria-label="הצגת הספר" style="padding-top:0;">
+      <div class="grid" role="list">
+        <div class="card" role="listitem">
+          <h4>הכרת הקונפליקטים</h4>
+          <p>מה בין המוח ללב ואיך לנווט את הרגשות בצורה בריאה.</p>
+        </div>
+        <div class="card" role="listitem">
+          <h4>קבלה עצמית</h4>
+          <p>איך לקבל את עצמכם בצורה אוהבת ולהפסיק להוכיח את עצמכם שוב ושוב.</p>
+        </div>
+        <div class="card" role="listitem">
+          <h4>שמחה פנימית</h4>
+          <p>צעדים מעשיים למצוא שמחה בחיי היומיום.</p>
+        </div>
+      </div>
+    </section>
 
-<p class="highlight">ספר דיגיטלי קצר שמתאים לכולם</p>
+    <!-- FAQ with plus toggles -->
+    <section id="faq" class="section faq" aria-label="שאלות נפוצות">
+      <h3 style="text-align:center; margin-bottom:12px;">שאלות נפוצות (עם פלוס להרחבה)</h3>
 
-<p>
-החיים שלנו הם שילוב תמידי של מחשבה, רגש, פעולה ונשמה.
-לעיתים נדמה שהם סבוכים ואנחנו לא תמיד יודעים איך לנווט בהם.
-</p>
+      <div class="faq-item" data-index="q1">
+        <button class="faq-q" onclick="toggleFaq(0)">
+          מהו הספר і למה כדאי לקרוא אותו? <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>הספר מספק מסע קצר והומני להבנת עצמכם טוב יותר, כולל כלי תמרון בין מחשבה לרגש, והתחברות לנשמה הפנימית.</p>
+        </div>
+      </div>
 
-<p>
-בספר הזה תגלו כלים להבין את עצמכם, להתמודד עם פחדים ולהתחבר לנשמה שלכם.
-</p>
+      <div class="faq-item" data-index="q2">
+        <button class="faq-q" onclick="toggleFaq(1)">
+          איך להוריד את הספר? <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>לאחר התשלום, תקבלו גישה להורדה או לקישור לקריאה מקוונת. אם תצטרכו, אספק הוראות מפורטות איך לגשת לקובץ.</p>
+        </div>
+      </div>
 
-<p>
-המסע הזה נועד להזכיר לכם: אתם לא צריכים להילחם בעצמכם.
-</p>
+      <div class="faq-item" data-index="q3">
+        <button class="faq-q" onclick="toggleFaq(2)">
+          מה קורה לאחר התשלום? <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>בסיוע Checkout Hosted (Stripe), לאחר תשלום תקבלו הפניה לעמוד קריאה או קישור קבוע לזמן מוגבל לקריאה בקובץ.</p>
+        </div>
+      </div>
 
-<p class="highlight">
-התחל את המסע שלך עכשיו – הורד את הספר והתחבר לעצמך.
-</p>
+      <div class="faq-item" data-index="q4">
+        <button class="faq-q" onclick="toggleFaq(3)">
+          איך אבטיח פרטיות ורכישות? <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <p>המערכת תומכת בהצפנת תשלום, אחסנת נתוני רכישה על השרת שלך בלבד, והפעלת קישור קריאה עם תוקף מוגבל.</p>
+        </div>
+      </div>
+    </section>
 
-</section>
+    <!-- תשלום / Checkout -->
+    <section id="checkout" class="section" aria-label="עמוד תשלום">
+      <div style="text-align:center;">
+        <h3>הורדות הספר זמינות מיד עם התשלום</h3>
+        <p>הקליקו על הכפתור למעבר לתשלום המאובטח:</p>
+        <button class="btn primary" id="buy-now">אני רוצה את הספר</button>
+        <p style="color:#6b7280; margin-top:8px;">הורדה/גישה לקריאה תתאפשר לאחר אימות התשלום.</p>
+        <p style="margin-top:16px;">
+          המשלוח דיגיטלי. לא תצטרכו לחכות – מתחיל את המסע מיד לאחר התשלום.
+        </p>
+      </div>
+    </section>
 
-<!-- FAQ -->
-<section class="faq fade">
+  </main>
 
-<h1>שאלות נפוצות</h1>
+  <footer style="text-align:center; padding:20px; color:#6b7280;">
+    © מספר הספרים שלך • כל הזכויות שמורות
+  </footer>
 
-<div class="faq-item">
-<div class="faq-question">האם הספר מתאים לכולם? <span>+</span></div>
-<div class="faq-answer">כן, לכל מי שרוצה להתפתח.</div>
-</div>
+  <script>
+    // Toggle FAQ items (פלוס שמופיע/נעלם)
+    function toggleFaq(i){
+      const items = document.querySelectorAll('.faq-item');
+      const el = items[i];
+      if(!el) return;
+      const isOpen = el.classList.toggle('open');
+      el.querySelector('.faq-a').style.display = isOpen ? 'block' : 'none';
+      // rotate plus sign
+      const icon = el.querySelector('.faq-icon');
+      if(icon) icon.textContent = isOpen ? '−' : '+';
+    }
 
-<div class="faq-item">
-<div class="faq-question">כמה זמן לקרוא? <span>+</span></div>
-<div class="faq-answer">כמה שעות.</div>
-</div>
-
-<div class="faq-item">
-<div class="faq-question">איך מקבלים? <span>+</span></div>
-<div class="faq-answer">בהורדה ישירה.</div>
-</div>
-
-<div class="faq-item">
-<div class="faq-question">מתאים לטלפון? <span>+</span></div>
-<div class="faq-answer">כן.</div>
-</div>
-
-<div class="faq-item">
-<div class="faq-question">יש החזר? <span>+</span></div>
-<div class="faq-answer">בהתאם למדיניות.</div>
-</div>
-
-</section>
-
-<!-- כפתור צף -->
-<a href="#" class="floating-btn" id="buyBtn">לקנייה</a>
-
-<script>
-
-/* FAQ */
-const items = document.querySelectorAll(".faq-item");
-
-items.forEach(item => {
-  item.addEventListener("click", () => {
-
-    items.forEach(i => {
-      if (i !== item) {
-        i.classList.remove("active");
-        i.querySelector("span").textContent = "+";
-      }
+    // Initialize: hide answers
+    document.addEventListener('DOMContentLoaded', function(){
+      document.querySelectorAll('.faq-a').forEach(n => n.style.display='none');
+      document.querySelectorAll('.faq-icon').forEach(n => n.textContent = '+');
     });
 
-    item.classList.toggle("active");
-
-    const symbol = item.querySelector("span");
-    symbol.textContent = item.classList.contains("active") ? "−" : "+";
-  });
-});
-
-/* אנימציות */
-const faders = document.querySelectorAll(".fade");
-
-window.addEventListener("scroll", () => {
-  faders.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 50) {
-      el.classList.add("show");
-    }
-  });
-});
-
-/* כפתור צף */
-const btn = document.getElementById("buyBtn");
-
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 300) {
-    btn.style.display = "block";
-  } else {
-    btn.style.display = "none";
-  }
-});
-
-</script>
-
-</body>
-</html>
-  <!-- PayPal Button Container -->
-  <div id="paypal-container"></div>
-</div>
-
-<!-- PayPal SDK -->
-<script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID&currency=ILS"></script>
-<script>
-  paypal.Buttons({
-    createOrder: function(data, actions) {
-      return actions.order.create({
-        purchase_units: [{
-          amount: { value: '50.00' } // מחיר הספר
-        }]
-      });
-    },
-    onApprove: function(data, actions) {
-      return actions.order.capture().then(function(details) {
-        alert('תודה על הרכישה, ' + details.payer.name.given_name + '!');
-        // הפניה לקובץ PDF להורדה אחרי התשלום
-        window.location.href = 'yourbook.pdf';
-      });
-    }
-  }).render('#paypal-container');
-</script>
-
-</body>
-</html>
-<script 
-  src="https://www.paypal.com/sdk/js?client-id=BAACWrOZGBoLDlPBXPGGah4srdcZqNI2VoSQtQs9DrRk-S1ifsfeNGGApOqMRaiXABp7mFamWVbGNc_4lw&components=hosted-buttons&disable-funding=venmo&currency=ILS">
-</script>
-<div id="paypal-container-5BSLU7DFQQZ32"></div>
-<script>
-  paypal.HostedButtons({
-    hostedButtonId: "5BSLU7DFQQZ32",
-  }).render("#paypal-container-5BSLU7DFQQZ32")
-</script>
-
-<!DOCTYPE html>
-<html lang="he">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>צור קשר</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<header>
-  <nav>
-    <ul>
-      <li><a href="index.html">בית</a></li>
-      <li><a href="about.html">אודות הספר</a></li>
-      <li><a href="download.html">התחל לקרוא</a></li>
-      <li><a href="contact.html">צור קשר</a></li>
-    </ul>
-  </nav>
-  <h1>צור קשר</h1>
-</header>
-
-<main>
-  <section class="intro">
-    <form>
-      <label>שם:</label><br>
-      <input type="text" name="name" required><br><br>
-      <label>אימייל:</label><br>
-      <input type="email" name="email" required><br><br>
-      <label>הודעה:</label><br>
-      <textarea name="message" rows="5" required></textarea><br><br>
-      <button type="submit">שלח</button>
-    </form>
-  </section>
-</main>
-
-<footer>
-  &copy; 2026 המסע אל עצמך. כל הזכויות שמורות.
-</footer>
+    // תשלום: הפניה לדף Checkout
+    document.getElementById('btn-buy-top').addEventListener('click', function(){
+      // כאן תחברו ל- backend/Checkout. להדגמה נ.redirect לנתיב /checkout
+      window.location.href = '/checkout';
+    });
+    document.getElementById('buy-now').addEventListener('click', function(){
+      window.location.href = '/checkout';
+    });
+  </script>
 </body>
 </html>
