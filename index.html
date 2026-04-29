@@ -210,7 +210,22 @@
       window.location.href = '/checkout';
     });
   </script>
-</body>
+</body> <div id="paypal-container-BPZYTVPVJ9MSA" style="display:none;"></div>
+
+<script src="https://www.paypal.com/sdk/js?client-id=BAACWrOZGBoLDlPBXPGGah4srdcZqNI2VoSQtQs9DrRk-S1ifsfeNGGApOqMRaiXABp7mFamWVbGNc_4lw&components=hosted-buttons&disable-funding=venmo&currency=ILS"></script>
+
+<script>
+  paypal.HostedButtons({
+    hostedButtonId: "BPZYTVPVJ9MSA"
+  }).render("#paypal-container-BPZYTVPVJ9MSA");
+
+  document.getElementById("btn-buy-top").addEventListener("click", function() {
+    const btn = document.querySelector("#paypal-container-BPZYTVPVJ9MSA button");
+    if (btn) {
+      btn.click();
+    }
+  });
+</script>
 </html>
 <script 
   src="https://www.paypal.com/sdk/js?client-id=BAACWrOZGBoLDlPBXPGGah4srdcZqNI2VoSQtQs9DrRk-S1ifsfeNGGApOqMRaiXABp7mFamWVbGNc_4lw&components=hosted-buttons&disable-funding=venmo&currency=ILS">
