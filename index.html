@@ -202,12 +202,14 @@
     });
 
     // תשלום: הפניה לדף Checkout
-    document.getElementById('btn-buy-top').addEventListener('click', function(){
-      // כאן תחברו ל- backend/Checkout. להדגמה נ.redirect לנתיב /checkout
-      window.location.href = '/checkout';
-    });
-    document.getElementById('buy-now').addEventListener('click', function(){
-      window.location.href = '/checkout';
+   
+<script 
+  src="https://www.paypal.com/sdk/js?client-id=BAACWrOZGBoLDlPBXPGGah4srdcZqNI2VoSQtQs9DrRk-S1ifsfeNGGApOqMRaiXABp7mFamWVbGNc_4lw&components=hosted-buttons&disable-funding=venmo&currency=ILS">
+</script>
+<div id="paypal-container-BPZYTVPVJ9MSA"></div>
+<script>
+  paypal.HostedButtons({
+    hostedButtonId: "BPZYTVPVJ9MSA",
     });
   </script>
 </body> <div id="paypal-container-BPZYTVPVJ9MSA" style="display:none;"></div>
