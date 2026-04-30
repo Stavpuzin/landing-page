@@ -170,7 +170,26 @@
         <h3>הורדות הספר זמינות מיד עם התשלום</h3>
         <p>הקליקו על הכפתור למעבר לתשלום המאובטח:</p>
         <button class="btn primary" id="buy-now">אני רוצה את הספר</button>
-        <p style="color:#6b7280; margin-top:8px;">הורדה/גישה לקריאה תתאפשר לאחר אימות התשלום.</p>
+<script src="https://www.paypal.com/sdk/js?client-id=BAACWrOZGBoLDlPBXPGGah4srdcZqNI2VoSQtQs9DrRk-S1ifsfeNGGApOqMRaiXABp7mFamWVbGNc_4lw&components=hosted-buttons&disable-funding=venmo&currency=ILS"></script>
+
+<div id="paypal-container-BPZYTVPVJ9MSA" style="display:none;"></div>
+
+<script>
+  paypal.HostedButtons({
+    hostedButtonId: "BPZYTVPVJ9MSA"
+  }).render("#paypal-container-BPZYTVPVJ9MSA");
+
+  function triggerPayPal() {
+    const btn = document.querySelector("#paypal-container-BPZYTVPVJ9MSA button");
+    if (btn) btn.click();
+  }
+
+  document.getElementById("btn-buy-top").addEventListener("click", triggerPayPal);
+  document.getElementById("buy-now").addEventListener("click", triggerPayPal);
+</script>
+
+</body>
+</html>        <p style="color:#6b7280; margin-top:8px;">הורדה/גישה לקריאה תתאפשר לאחר אימות התשלום.</p>
         <p style="margin-top:16px;">
           המשלוח דיגיטלי. לא תצטרכו לחכות – מתחיל את המסע מיד לאחר התשלום.
         </p>
