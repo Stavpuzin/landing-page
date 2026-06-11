@@ -186,6 +186,7 @@
     margin-bottom: 60px;
   }
 
+  /* ── CARDS TRACK – desktop scroll ── */
   .cards-track-wrapper {
     position: relative;
     overflow: hidden;
@@ -253,6 +254,43 @@
     width: 4px; height: 50%;
     background: linear-gradient(180deg, transparent, var(--gold));
     border-radius: 4px 0 0 0;
+  }
+
+  /* ── FLOATING ANIMATION ── */
+  @keyframes floatCard {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-10px); }
+  }
+
+  .card:nth-child(1) { animation: floatCard 4s ease-in-out infinite; }
+  .card:nth-child(2) { animation: floatCard 4s ease-in-out 1s infinite; }
+  .card:nth-child(3) { animation: floatCard 4s ease-in-out 2s infinite; }
+  .card:nth-child(4) { animation: floatCard 4s ease-in-out infinite; }
+  .card:nth-child(5) { animation: floatCard 4s ease-in-out 1s infinite; }
+  .card:nth-child(6) { animation: floatCard 4s ease-in-out 2s infinite; }
+
+  /* pause float on hover */
+  .card:hover { animation-play-state: paused; transform: translateY(-6px); }
+
+  /* ── MOBILE: grid instead of scroll ── */
+  @media (max-width: 700px) {
+    .cards-track-wrapper { overflow: visible; }
+
+    .cards-track {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      width: 100%;
+      animation: none;
+    }
+
+    /* hide the duplicate cards on mobile */
+    .cards-track .card:nth-child(n+4) { display: none; }
+
+    .card {
+      width: 100%;
+      padding: 28px 22px;
+    }
   }
 
   /* ── FAQ SECTION ── */
@@ -377,10 +415,10 @@
     .hero-title { font-size: 2.8rem; }
     .hero-intro { font-size: 0.95rem; }
     .btn-green { padding: 14px 38px; font-size: 1rem; }
-    .card { width: 270px; padding: 32px 24px; }
     .faq-question { padding: 18px 20px; }
     .faq-answer { padding: 0 20px; }
     .faq-item.open .faq-answer { padding: 0 20px 20px; }
+    .cards-section { padding: 60px 16px; }
   }
 </style>
 </head>
